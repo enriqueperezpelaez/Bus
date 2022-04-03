@@ -1,0 +1,108 @@
+[
+    {
+        "IdParada":1,
+        "Codigo":"1421",
+        "Descripcion":"Paseo de la Farola",
+        "Latitud":-44142814,
+        "Longitud":3671476
+    },
+    {
+        "IdParada":2,
+        "Codigo":"1301",
+        "Descripcion":"Paseo Mtmo. Ciudad de Melilla - Paseo Farola",
+        "Latitud":-44131126,
+        "Longitud":3671534
+    },
+    {
+        "IdParada":3,
+        "Codigo":"1802",
+        "Descripcion":"Pso. Mtmo. Cdad. de Melilla - Pza. Malagueta",
+        "Latitud":-44103518,
+        "Longitud":3671758
+    },
+    {
+        "IdParada":4,
+        "Codigo":"301",
+        "Descripcion":"Paseo del Parque - Plaza del General Torrijos",
+        "Latitud":-44133034,
+        "Longitud":3672041
+    },
+    {
+        "IdParada":5,
+        "Codigo":"164",
+        "Descripcion":"Paseo del Parque",
+        "Latitud":-44162693,
+        "Longitud":3671953
+    },
+    {
+        "IdParada":6,
+        "Codigo":"1803",
+        "Descripcion":"Paseo del Parque - Plaza Marina",
+        "Latitud":-4418946,
+        "Longitud":3671878
+    },
+    {
+        "IdParada":7,
+        "Codigo":"425",
+        "Descripcion":"Alameda Principal - Norte",
+        "Latitud":-4423234,
+        "Longitud":3671754
+    },
+    {
+        "IdParada":8,
+        "Codigo":"416",
+        "Descripcion":"Avda. de Andalucía",
+        "Latitud":-4428832,
+        "Longitud":36716938
+    },
+    {
+        "IdParada":9,
+        "Codigo":"1810",
+        "Descripcion":"Avda. de la Aurora - Centro Comercial",
+        "Latitud":-44314833,
+        "Longitud":3671628
+    },
+    {
+        "IdParada":10,
+        "Codigo":"1811",
+        "Descripcion":"Avda. de la Aurora - Jardines Picasso",
+        "Latitud":-4434013,
+        "Longitud":3671633
+    },
+    {
+        "IdParada":11,
+        "Codigo":"1416",
+        "Descripcion":"Avda. de la Aurora - Puente de las Américas",
+        "Latitud":-4438405,
+        "Longitud":36715775
+    },
+    {
+        "IdParada":12,
+        "Codigo":"1417",
+        "Descripcion":"Avda. de la Aurora - Horacio Lengo",
+        "Latitud":-4440805,
+        "Longitud":36715054
+    },
+    {
+      "IdParada": 13,
+      "Codigo": "1812",
+      "Descripcion": "Virgen de la Estrella - El Fuerte",
+      "Latitud": -4442904,
+      "Longitud": 3671556
+    },
+    {
+        "IdParada":14,
+        "Codigo":"1406",
+        "Descripcion":"Virgen de la Estrella - Centro de Salud",
+        "Latitud":-44432173,
+        "Longitud":3671664
+    },
+    {
+        "IdParada":15,
+        "Codigo":"1852",
+        "Descripcion":"Avda. Herrera Oria - Virgen de las Flores",
+        "Latitud":-44437428,
+        "Longitud":36718708
+    }
+
+]

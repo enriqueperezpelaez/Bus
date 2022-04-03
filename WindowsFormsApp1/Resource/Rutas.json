@@ -1,0 +1,27 @@
+[
+    {
+        "IdRuta":1,
+        "Codigo":"L18",
+        "Descripcion":"Ciudad Jardín - Teatinos"
+    },
+    {
+        "IdRuta":2,
+        "Codigo":"L29",
+        "Descripcion":"Jarazmín - El Palo"
+    },
+    {
+        "IdRuta":3,
+        "Codigo":"L30",
+        "Descripcion":"Alameda Principal - Mangas Verdes"
+    },
+    {
+        "IdRuta":4,
+        "Codigo":"L32",
+        "Descripcion":"Av. Andalucía - Limonar - Mayorazgo"
+    },
+    {
+        "IdRuta":5,
+        "Codigo":"L14",
+        "Descripcion":"Paseo de la Farola - Carranque - Teatinos"
+    }
+]
