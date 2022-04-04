@@ -27,25 +27,28 @@ namespace RedTransporte.Class
                     this.grafo[f, c] = grafo[f, c];
         }
 
-        public bool addArco(int inicio,int fin,float? distancia)
+        public void addArco(int inicio,int fin,float? distancia)
         {
             if (inicio < nNodos && fin < nNodos)
                 grafo[inicio, fin] = distancia;
             else
-                return false;
-
-            return true;
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
         }
 
-        public bool getDistancia(int inicio,int fin, out float? distancia)
+        public void deleteArco(int inicio, int fin)
         {
-            distancia = null;
             if (inicio < nNodos && fin < nNodos)
-                distancia=grafo[inicio, fin];
+                grafo[inicio, fin] = null;
             else
-                return false;
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
+        }
 
-            return true;
+        public float? getDistancia(int inicio,int fin)
+        {
+            if (inicio < nNodos && fin < nNodos)
+                return grafo[inicio, fin];
+            else
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
         }
     }
 }

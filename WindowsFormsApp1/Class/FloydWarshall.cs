@@ -24,11 +24,9 @@ namespace RedTransporte.Class
             for (int f = 0; f < nNodos; f++)
                 for (int c = 0; c < nNodos; c++)
                 {
-                    if (grafo.getDistancia(f, c, out distancia))
-                    {
-                        distancias[f, c] = distancia;
+                    distancia = grafo.getDistancia(f, c);
+                    distancias[f, c] = distancia;
                         if (distancia.HasValue) antecesores[f, c] = f;
-                    }
                 }
 
             calcFloydWarshall();

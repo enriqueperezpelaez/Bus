@@ -99,7 +99,7 @@
             this.btnCaminoMinimo.TabIndex = 2;
             this.btnCaminoMinimo.Text = "Calcula";
             this.btnCaminoMinimo.UseVisualStyleBackColor = false;
-            this.btnCaminoMinimo.Click += new System.EventHandler(this.button3_Click);
+            this.btnCaminoMinimo.Click += new System.EventHandler(this.btnCaminoMinimo_Click);
             // 
             // dgvParadas
             // 

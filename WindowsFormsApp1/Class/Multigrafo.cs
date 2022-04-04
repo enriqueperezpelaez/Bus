@@ -19,7 +19,7 @@ namespace RedTransporte.Class
                 this.prioritario = prioritario;
             }
             public void setDistancia(float? distancia) { this.distancia = distancia; }
-            public void setPrioritario(bool pordefecto=true) { this.prioritario = prioritario; }
+            public void setPrioritario(bool prioritario = true) { this.prioritario = prioritario; }
         }
 
         List<Arco>[,] multigrafo { get; }
@@ -36,7 +36,7 @@ namespace RedTransporte.Class
             }
         }
 
-        public bool addArco (int inicio, int fin, float distancia, bool prioritario = false)
+        public void addArco (int inicio, int fin, float distancia, bool prioritario = false)
         {
             if (inicio < nNodos && fin < nNodos)
             {
@@ -48,12 +48,11 @@ namespace RedTransporte.Class
                     if (prioritario) multigrafo[inicio, fin].ForEach(a => a.setPrioritario(false));
                     multigrafo[inicio, fin].Add(arco);
                 }
-                return true;
             }
             else
-                return false;
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
         }
-        public bool deleteArco (int inicio, int fin, float distancia)
+        public void deleteArco (int inicio, int fin, float distancia)
         {
             if (inicio < nNodos && fin < nNodos)
             {
@@ -62,66 +61,58 @@ namespace RedTransporte.Class
                 {
                     multigrafo[inicio, fin].Remove(arco);
                     if (multigrafo[inicio, fin].Count == 0) multigrafo[inicio, fin] = null;
-                    return true;
                 }
             }
-            return false;
+            else
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
         }
-        public bool setArcoPrioritario(int inicio, int fin, float distancia, bool prioritario = true)
+        public void setArcoPrioritario(int inicio, int fin, float distancia, bool prioritario = true)
         {
             if (inicio < nNodos && fin < nNodos)
             {
-                if (prioritario) multigrafo[inicio, fin].ForEach(a => a.setPrioritario(false));
-
-                Arco arco = multigrafo[inicio, fin].FirstOrDefault(a => a.distancia == distancia);
+                Arco arco = multigrafo[inicio, fin]?.FirstOrDefault(a => a.distancia == distancia);
                 if (arco != null)
                 {
+                    if (prioritario) multigrafo[inicio, fin].ForEach(a => a.setPrioritario(false));
                     arco.setPrioritario(prioritario);
-                    return true;
                 }
+                else
+                    throw new ArgumentException(string.Format("No existe el arco ({0},{1}) con distancia {2}",inicio,fin,distancia));
             }
-            return false;
+            else
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
         }
 
-        private Arco getArcoPorDefecto(int inicio,int fin)
+        public float? getDistancia(int inicio,int fin, bool optimo=false)
         {
-            Arco arco;
-            if (multigrafo[inicio, fin] == null)
-                return null;
-            else
+            Arco arco = getArco(inicio, fin, optimo);
+            return arco?.distancia;
+        }
+
+        private Arco getArco(int inicio, int fin,bool optimo=false)
+        {
+            if (inicio < nNodos && fin < nNodos)
             {
-                arco=multigrafo[inicio, fin].FirstOrDefault(a => a.prioritario == true);
+                Arco arco=null;
+                if (!optimo)
+                    arco = multigrafo[inicio, fin]?.FirstOrDefault(a => a.prioritario == true);
+
                 if (arco != null)
                     return arco;
                 else
-                    return multigrafo[inicio, fin].OrderBy(a => a.distancia).First();
+                    return multigrafo[inicio, fin]?.OrderBy(a => a.distancia).First();
             }
-        }
-        private Arco getArcoOptimo(int inicio, int fin)
-        {
-            if (multigrafo[inicio, fin] == null)
-                return null;
             else
-                return multigrafo[inicio, fin].OrderBy(a => a.distancia).First();
+                throw new ArgumentOutOfRangeException("Indice fuera de rango");
         }
 
-        public Grafo getGrafo()
+        public Grafo getGrafo(bool optimo = false)
         {
             Grafo g = new Grafo(nNodos);
 
             for (int f = 0; f < nNodos; f++)
                 for (int c = 0; c < nNodos; c++)
-                    g.addArco(f, c, getArcoPorDefecto(f,c)?.distancia);
-
-            return g;
-        }
-        public Grafo getGrafoOptimo()
-        {
-            Grafo g = new Grafo(nNodos);
-
-            for (int f = 0; f < nNodos; f++)
-                for (int c = 0; c < nNodos; c++)
-                    g.addArco(f, c, getArcoOptimo(f, c)?.distancia);
+                        g.addArco(f, c, getArco(f, c,optimo)?.distancia);
 
             return g;
         }

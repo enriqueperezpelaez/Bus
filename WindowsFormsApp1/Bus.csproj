@@ -134,7 +134,11 @@
     <Content Include="Resource\bus-stop.png" />
     <Content Include="Resource\map-marker-distance.png" />
     <Content Include="Resource\map-marker-path.png" />
+    <Content Include="Script\create.sql" />
+    <Content Include="Script\insert.sql" />
+    <Content Include="Script\TramoOptimo.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
